@@ -1,11 +1,11 @@
 ---
-- name: AEM Apps Compute Resources Overarching CloudFormation Stack
+- name: AWS Stack Builder
   hosts: all
   gather_facts: no
   connection: local
 
   tasks:
-    - name: Create AEM App Main Resources Stack with permission type b
+    - name: Create AWS Stack
       cloudformation:
         stack_name: "{{ stack_prefix }}"
         region: "ap-southeast-2"
