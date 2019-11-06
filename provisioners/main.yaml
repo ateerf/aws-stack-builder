@@ -1,0 +1,16 @@
+---
+- name: AEM Apps Compute Resources Overarching CloudFormation Stack
+  hosts: all
+  gather_facts: no
+  connection: local
+
+  tasks:
+    - name: Create AEM App Main Resources Stack with permission type b
+      cloudformation:
+        stack_name: "{{ stack_prefix }}"
+        region: "ap-southeast-2"
+        state: present
+        disable_rollback: true
+        template: "../templates/code.yaml"
+        template_parameters:
+          ComputeKeyPairNameParameter: "{{ key_name }}"
